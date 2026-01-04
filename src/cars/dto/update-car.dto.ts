@@ -1,4 +1,11 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateCarDto } from './create-car.dto';
+import { IsOptional, IsString, IsUUID } from 'class-validator';
 
-export class UpdateCarDto extends PartialType(CreateCarDto) {}
+export class UpdateCarDto {
+  @IsString()
+  @IsOptional()
+  readonly brand?: string;
+
+  @IsString()
+  @IsOptional()
+  readonly model?: string;
+}
